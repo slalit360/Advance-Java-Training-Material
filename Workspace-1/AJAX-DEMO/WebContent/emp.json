@@ -1,0 +1,7 @@
+{
+	"emp" :  [
+			{"empname" : "abc"   ,  "empid"  :"12"  ,   "emploc":"bang"},
+			{"empname" : "xyz"   ,  "empid": "34"  ,  "emploc":"mumbai"},
+			{"empname" : "asd"   ,  "empid": "56"   , "emploc":"chennai"}
+	      ]
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>AJAX DEMO PAGE</title>
+
+<script type="text/javascript">
+	
+	function ajaxFunction()
+	{
+		var uid=document.getElementById("uid").value;
+		var xmlhttprequest= new XMLHttpRequest();
+		
+		//xmlhttprequest.open("GET", "data.txt",true)
+		xmlhttprequest.open("GET", "./AsyncServlet?userid="+uid,true)
+		xmlhttprequest.send();
+		xmlhttprequest.onreadystatechange=function()
+		{
+			if(xmlhttprequest.readyState==4)
+			{
+				document.getElementById("div1").innerHTML=xmlhttprequest.responseText;
+			}
+		}
+	}
+	
+	
+	
+	function btn_click()
+	{
+		//var uid=document.getElementById("uid").value;
+		var xmlhttprequest= new XMLHttpRequest();
+		
+		xmlhttprequest.open("GET","data.txt",true)
+		xmlhttprequest.send();
+		xmlhttprequest.onreadystatechange=function()
+		{
+			if(xmlhttprequest.readyState==4)
+			{
+				document.getElementById("div2").innerHTML=xmlhttprequest.responseText;
+			}
+		}
+	}
+	
+	function btn_click_json()
+	{
+		var xmlhttprequest= new XMLHttpRequest();
+		
+		xmlhttprequest.open("GET","emp.json",true)
+		xmlhttprequest.send();
+		xmlhttprequest.onreadystatechange=function()
+		{
+			if(xmlhttprequest.readyState==4)
+			{
+				var json=JSON.parse(xmlhttprequest.responseText);
+				
+				//alert(json.emp[0].empname+", "+json.emp[0].empid+", "+json.emp[0].emploc);
+				document.getElementById("div3").innerHTML="<tr><td>Name</td><td>ID</td><td>Location</td></tr>";
+				
+				for (var i = 0; i < json.emp.length; i++) 
+				{
+					
+					document.getElementById("div3").innerHTML="<tr><td>"+json.emp[i].empname+"</td><td>"+json.emp[i].empid+"</td><td>"+json.emp[i].emploc+"</td></tr>";
+				}
+				//document.getElementById("div3").innerHTML="</table>";
+				
+			}
+		}
+	}
+</script>
+
+</head>
+<body>
+	<h1>REGISTRATION PAGE</h1>
+		FIRST_NAME : <input type="text" name="fname">
+		<br>
+		LAST_NAME : <input type="text" name="lname">
+		<br>
+		USER_ID : 	<input type="text" name="uname" id="uid" onblur="ajaxFunction();">
+		<div id="div1">--RESPONSE--</div>
+		<br>
+		
+		<input type="button" name="btn" onclick="btn_click()" value="Login"/><br>
+		<div id="div2">--GET RESPONSE--</div>
+		<br>
+		
+		<input type="button" name="btn1" onclick="btn_click_json()" value="GET"/><br>
+		<br>
+		<div>
+		<table id="div3">
+			
+		</table>
+		</div>
+		<br>
+
+</body>
+</html>
