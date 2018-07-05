@@ -1,0 +1,59 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+ 
+	<bean id="CustomerBean" class="com.collection.Customer">
+
+		<!-- java.util.List -->
+		<property name="loanList">
+			<list>
+				<value>1</value>
+				<ref bean="loanBean1" />
+				<bean id="loanBean2" class="com.collection.Loan">
+					<property name="loanId" value="1212" />
+					<property name="loanType" value="Home" />
+				</bean>
+			</list>
+		</property>
+		
+		<property name="loanSets">
+			<set>
+				<value>1</value>
+				<value>1</value>
+				<ref bean="loanBean1" />
+				<bean id="loanBean3" class="com.collection.Loan">
+					<property name="loanId" value="1212" />
+					<property name="loanType" value="Home" />
+				</bean>
+			</set>
+		</property>
+		
+		
+		<property name="loanMaps">
+			<map>
+				<entry key="Key 1" value="1" />
+				<entry key="Key 2" value-ref="loanBean1" />
+				<entry key="Key 3">
+					<bean id="loanBean4" class="com.collection.Loan">
+					<property name="loanId" value="1212" />
+					<property name="loanType" value="Home" />
+				</bean>
+				</entry>
+			</map>
+		</property>
+		
+		
+		
+		
+	</bean>
+	
+		
+	
+	<bean id="loanBean1" class="com.collection.Loan">
+		<property name="loanId" value="1313" />
+		<property name="loanType" value="Car" />
+	</bean>
+
+  
+</beans>
