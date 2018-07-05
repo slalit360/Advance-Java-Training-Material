@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+<Book>
+	<title></title>
+	<ISBN></ISBN>
+	<author></author>
+	<description></description>
+	<copyright></copyright>
+</Book>
+
+
+<Periodicals>
+	<title></title>
+	<publisher></publisher>
+	<date></date>
+	<article>
+		<title></title>
+		<description></description>
+	</article>
+</Periodicals>
+</library>

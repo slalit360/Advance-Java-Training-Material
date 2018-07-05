@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Employee xmlns="default namespace">
+	<Employee>
+		<EmpId>101</EmpId>
+		<EmpName salutation="Mr">Jack</EmpName>
+		<jobBand>AM</jobBand>
+	</Employee>
+	
+	<Employee>
+		<EmpId>102</EmpId>
+		<EmpName salutation="Mr">Mark</EmpName>
+		<jobBand>SM</jobBand>
+	</Employee>
+
+</Employee>

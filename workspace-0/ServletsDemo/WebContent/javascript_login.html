@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+	<title>Javascript Login Form Validation</title>
+	<link rel="stylesheet" href="style.css"/>
+	<script type="text/javascript">
+	function validate()
+	{
+		uname=document.getElementById("uid").value;
+		pass=document.getElementById("pid").value;
+		
+		if(uname==null || uname=="")
+			{
+				alert("Username is required");
+				return false;
+			}
+		
+		if(pass==null || pass=="")
+		{
+			alert("Password is required");
+			return false;
+		}
+		return true;
+		
+	}
+</script>
+	</head>
+	
+	<body>
+		<div class="container">
+		<div class="main">
+		<h3>Login Form Validation</h3>
+		<form  method="post" action="LoginServlet" >
+			<label>User Name :</label>
+			<input type="text" name="usname" id="uid"/>
+			<label>Password :</label>
+			<input type="password" name="pass" id="pid"/>
+			<input type="submit" value="Login" id="submit" onclick="return validate()"/>
+		</form>
+		</div>
+		</div>
+	</body>
+</html>
